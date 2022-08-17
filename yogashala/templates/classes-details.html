@@ -1,0 +1,229 @@
+{% extends 'index.html' %}
+{% load static %}
+<!-- Breadcrumb End -->
+{% block content %}
+    <!-- Classes Section Begin -->
+    <section class="classes-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="classes__sidebar">
+                        <div class="classes__sidebar__item classes__sidebar__item--info">
+                            <h4>Classes Information</h4>
+                            <ul class="classes__sidebar__item__widget">
+                                <li><span class="icon_calendar"></span>{{course.Date}}</li>
+                            </ul>
+                            <ul class="classes__sidebar__item__id">
+                                <li><span class="icon_pin_alt"></span>{{course.location}}</li>
+                                <li><span class="icon_id"></span>{{ course.trainer_name }}</li>
+                            </ul>
+                            <a href="#" class="sidebar-btn">Enroll in course</a>
+                        </div>
+                        <div class="classes__sidebar__item">
+                            <h4>About Instructor</h4>
+                            <div class="classes__sidebar__instructor">
+                                <div class="classes__sidebar__instructor__pic">
+                                    {% for img in train.trainers_profile_set.all %}
+
+                                    <img src="" alt="">{{ img.trainer_pic1.url}}
+
+                                    {% endfor %}
+
+
+                                
+                                </div>
+                                <div class="classes__sidebar__instructor__text">
+                                    <div class="classes__sidebar__instructor__title">
+                                        <h4> {{course.trainer_name}}</h4>
+                                        <span>Yoga Teacher</span>
+                                    </div>
+                                    <!-- <p>Yoga & Therapy Certificate of<br /> Uttarakhand University Sanskirt</p> -->
+                                    <div class="classes__sidebar__instructor__social">
+                                        <a href="#"><span class="social_facebook"></span></a>
+                                        <a href="#"><span class="social_twitter"></span></a>
+                                        <a href="#"><span class="social_instagram"></span></a>
+                                        <a href="#"><span class="social_linkedin"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="classes__sidebar__item">
+                            <!-- <h4>Review & Comment</h4> -->
+                            <div class="classes__sidebar__comment__list">
+                                <div class="classes__sidebar__comment">
+                                     -->
+                                    <div class="classes__sidebar__comment__text">
+                                        <!-- <span>04 Mar 2018</span>
+                                        <h6>Brandon Kelley</h6>
+                                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+                                            adipisci velit,</p> -->
+                                    </div>
+                                </div>
+                                <div class="classes__sidebar__comment">
+                                    <!-- <div class="classes__sidebar__comment__pic">
+                                        <img src="img/classes-details/comment-2.png" alt="">
+                                        <div class="classes__sidebar__comment__rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="classes__sidebar__comment__text">
+                                        <span>04 Mar 2018</span>
+                                        <h6>Christina Kelley</h6>
+                                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,</p>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="classes__details">
+                        <div class="classes__details__large">
+                            <img src="{{ course.file_mainpic.url }}" alt="" style="height:500px;width:500px;">
+                            <span>Beginer</span>
+                        </div>
+                        <ul class="classes__details__widget">
+                            <li><span class="icon_calendar"></span> Mon, Wed, Fri</li>
+                            <li><span class="icon_clock_alt"></span> 18:30 - 19:30</li>
+                        </ul>
+                        <h2>{{ course.course_name }}</h2>
+                        <p>{{  course.Description }}</p>
+                        <div class="classes__details__item">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4">
+                                    <!-- <img src="{{ course.pic1.url }}" alt=""> -->
+                                </div>
+                                <div class="col-lg-8 col-md-8">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <img src="img/classes-details/cd-item-2.jpg" alt="">
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <img src="img/classes-details/cd-item-3.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <img src="img/classes-details/cd-item-4.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="classes__details__desc">
+                            <!-- <h6>The Secret to improving her height to achieve quick result, If you are going to use a
+                                passage of you need to be sure.</h6>
+                            <ul>
+                                <li><span class="icon_check"></span> All their equipment and instruments are alive.</li>
+                                <li><span class="icon_check"></span> The that about to watched storm, so beautiful
+                                    terrific.</li>
+                                <li><span class="icon_check"></span> There are many variations of passages of lorem
+                                    ppsum available.</li>
+                                <li><span class="icon_check"></span> If you are going to use a passage of you need to be
+                                    sure.</li>
+                            </ul> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Classes Section End -->
+
+    <!-- Leave Comment Begin -->
+    <!-- <div class="leave-comment spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="leave__comment__text">
+                        <h2>Leave A Comment</h2>
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <input type="text" placeholder="Name*">
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <input type="text" placeholder="Email*">
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="leave__comment__rating">
+                                        <h5>Your Rating:</h5>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 text-center">
+                                    <textarea placeholder="Your Comment"></textarea>
+                                    <button type="submit" class="site-btn">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Leave Comment End -->
+
+    <!-- Upcoming Classes Section Begin -->
+    <!-- <section class="upcoming-classes spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title normal-title">
+                        <h2>Feature Course</h2>
+                        <p>The trainings are multi-style and you will learn and practice <br />Hatha Vinyasa (flow) and
+                            Yin Yoga.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="classes__item">
+                        <div class="classes__item__pic set-bg" data-setbg="img/classes/classes-10.jpg">
+                            <span>20 Jun 2019</span>
+                        </div>
+                        <div class="classes__item__text">
+                            <p>14 Days | Start on 10th Every Month</p>
+                            <h4><a href="#">100 Hour Yoga Course Rishikesh</a></h4>
+                            <h6>Jordan Lawson <span>- Yoga Teacher</span></h6>
+                            <a href="#" class="class-btn">JOIN NOW</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="classes__item">
+                        <div class="classes__item__pic set-bg" data-setbg="img/classes/classes-11.jpg">
+                            <span>20 Jun 2019</span>
+                        </div>
+                        <div class="classes__item__text">
+                            <p>14 Days | Start on 10th Every Month</p>
+                            <h4><a href="#">200 Hour Yoga Course Rishikesh</a></h4>
+                            <h6>Jordan Lawson <span>- Yoga Teacher</span></h6>
+                            <a href="#" class="class-btn">JOIN NOW</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="classes__item">
+                        <div class="classes__item__pic set-bg" data-setbg="img/classes/classes-12.jpg">
+                            <span>20 Jun 2019</span>
+                        </div>
+                        <div class="classes__item__text">
+                            <p>14 Days | Start on 10th Every Month</p>
+                            <h4><a href="#">300 Hour Yoga Course Rishikesh</a></h4>
+                            <h6>Jordan Lawson <span>- Yoga Teacher</span></h6>
+                            <a href="#" class="class-btn">JOIN NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Upcoming Classes Section End -->
+
+    <!-- Footer Section Begin -->
+  {% endblock %}

@@ -1,0 +1,912 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Directing Template">
+    <meta name="keywords" content="Directing, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shiv tattva yog school</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/elegant-icons.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/nice-select.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/barfiller.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/owl.carousel.min.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/slicknav.min.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css">
+</head>
+<style>
+
+.services__item{
+    transition: all 1s;
+}
+
+.services__item:hover{
+    transform: scale(1.2);
+
+}
+
+.home__about__pic__item{
+    transition: all 1s;
+
+
+}
+
+.home__about__pic__item:hover{
+    transform: scale(1.2);
+
+}
+
+.chooseus__item__icon{
+    transition: all 1s;
+
+}
+
+.chooseus__item__icon:hover{
+    transform: scale(1.2);
+
+}
+
+.rotate {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+
+
+/* .section-title{
+    position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+
+}
+
+@keyframes example{
+  0%   {left:0px; top:0px;}
+  25%  {left:200px; top:0px;}
+}   */
+
+
+.text {
+  /* background-color: #cc0000; */
+  position: relative;
+  font-size: 250px;
+  text-transform: capitalize;
+  color: transparent;
+  -webkit-text-stroke: 3px #ffffff;
+}
+
+.text::before {
+  content: attr(data-fill-text);
+  position: absolute;
+  width: 0;
+  height: 100%;
+  color: #ffffff;
+  -webkit-text-stroke: 0px transparent;
+  overflow: hidden;
+  transition: width 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.text:hover::before {
+  width: 100%;
+}
+
+
+
+
+</style>
+
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu">
+        <div class="offcanvas__logo">
+            <a href="{% url 'home' %}"><img src="{% static "img/logo.png" %}" alt="" style="height:50px;width:30px;"></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__widget">
+            <ul>
+                <li>CALL US: + 1 800-567-8990</li>
+                <li>WRITE US: OFFICE@EXAMPLE.COM</li>
+                <li>        {{ messages }}
+                </li>
+            </ul>
+        
+
+
+
+        </div>
+
+
+
+        <nav class="header__menu">
+            <ul class="mobile-menu">
+                <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'courses' %}">Classes</a></li>
+                <li><a href="{% url 'courses' %}">Classes</a>
+                    <ul class="dropdown">
+                        <li><a href="./classes-details.html">Classes Details</a></li>
+                        <li><a href="./blog-details.html">Blog Details</a></li>
+                        <li><a href="./pricing.html">Pricing</a></li>
+                        <li><a href="./faq.html">Faq</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'blogs' %}">Blog</a></li>
+                <!-- <li><a href="./contact.html">Contact</a></li> -->
+            </ul>
+        </nav>
+        <div class="offcanvas__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="header__logo">
+                            <a href="{% url 'home' %}"><img src="{% static "img/logo.png" %}" alt="" style="height:50px;width:100px;"></a>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-9 col-md-9">
+
+                        <div class="header__top__widget">
+                        
+
+                            
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open">
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="header__nav">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-9">
+                        <nav class="header__menu">
+                            <ul>
+                                <li class="active"><a href="{% url 'home' %}" style="color:burlywood;">Home</a></li>
+                                <li><a href="{% url 'about' %}" style="color:burlywood;">About</a></li>
+                                <li><a href="{% url 'courses' %}" style="color:burlywood;">Classes</a></li>
+                                <li><a href="{% url 'courses' %}" style="color:burlywood;" >Pages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="./classes-details.html" style="color:burlywood;">Classes Details</a></li>
+                                        <li><a href="./blog-details.html" style="color:burlywood;">Blog Details</a></li>
+                                        <li><a href="./pricing.html" style="color:burlywood;">Pricing</a></li>
+                                        <li><a href="./faq.html" style="color:burlywood;">Faq</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'blogs' %}" style="color:burlywood;">Blog</a></li>
+                                <!-- <li><a href="./contact.html" style="color:burlywood;">Contact</a></li> -->
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="header__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    {% block content %}
+    <!-- Hero Section Begin -->
+    <section class="hero">
+        <div class="hero__sliders owl-carousel">
+            <div class="hero__items set-bg" data-setbg="{% static "img/hero/hero-3.jpg" %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="hero__text">
+                                <span style="text-decoration-color: aquamarine;">Welcome to Shiv yog school</span>
+                                <h2>What hurts today makes you stronger tomorrow</h2>
+                                <a href="#" class="primary-btn">DISCOVER MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__items set-bg" data-setbg="{% static "img/hero/hero-3.jpg" %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="hero__text">
+                                <span  data-toggle="animation" data-animation-reset="false" data-animation="slide-right">Shiv tattva yog school</span>
+                                <h2>What hurts today makes you stronger tomorrow</h2>
+                                <a href="#" class="primary-btn">DISCOVER MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="counter spad" style="margin-top:50px;">
+        <div class="container">
+            <div class="counter__text set-bg" data-setbg="{% static 'img/counter/counter-bg.jpg' %}">
+                <div class="counter__item">
+                    <div class="counter__item__icon">
+                        <img src="{% static 'img/counter/counter-1.png' %}" alt="">
+                    </div>
+                    <div class="counter__item__text">
+                        <h2>2000+</h2>
+                        <p>Students</p>
+                    </div>
+                </div>
+                <div class="counter__item">
+                    <div class="counter__item__icon">
+                        <img src="{% static 'img/counter/counter-2.png' %}" alt="">
+                    </div>
+                    <div class="counter__item__text">
+                        <h2>10</h2>
+                        <p>Years Of Experience</p>
+                    </div>
+                </div>
+                <!-- <div class="counter__item">
+                    <div class="counter__item__icon">
+                        <img src="{% static 'img/counter/counter-3.png' %}" alt="">
+                    </div>
+                    <div class="counter__item__text">
+                        <h2>10</h2>
+                        <p>Branches</p>
+                    </div>
+                </div> -->
+                <div class="counter__item">
+                    <div class="counter__item__icon">
+                        <img src="{% static 'img/counter/counter-4.png' %}" alt="">
+                    </div>
+                    <div class="counter__item__text">
+                        <h2>10</h2>
+                        <p>Expert Staffs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+   
+    <!-- Hero Section End -->
+
+    <!-- About Section Begin -->
+    <section class="home-about spad" style="background-image:linear-gradient(#bfbfdb,#1CB5E0);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="home__about__pic">
+                        <div class="home__about__pic__item large-item set-bg" data-setbg="{% static "img/about/about-1.jpeg" %}"></div>
+                        <div class="home__about__pic__item">
+                            <div class="home__about__pic__item__inner set-bg" data-setbg="{% static "img/about/about-5.jpg" %}"></div>
+                            <div class="home__about__pic__item__inner set-bg" data-setbg="{% static "img/about/about-6.jpeg" %}"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="home__about__text">
+                        <div class="section-title">
+                            <img src="{% static "img/icon.png" %}" alt="">
+                            <h2><h2 class="text" data-fill-text="Welcome to shiv tattva yog school">Welcome to Shiv tattava  yog school</h2></h2>
+                        </div>
+                        <span>“What hurts today makes you stronger tomorrow.”</span>
+                        <p style="font-family:sans-serif;font-size:20px;">We are offering internationally certified 200 Hour Yoga Teacher Training in Rishikesh and 300
+                            hour yoga teacher training in Rishikesh, India - Join us to have such life-transforming
+                            experience in The world capital of Yoga in Rishikesh.</p>
+                        <p class="para-2">Zogin is a great place for those who are in search of the ancient practice and
+                            true essence of yoga, meditation, health, peace and learning the art of creating a class to
+                            teach safely. We are passionate about adjustments and mainly focus on the alignment of the
+                            asanas.</p>
+                        <a href="{% url 'about' %}" class="primary-btn">MORE ABOUT US</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- Services Section Begin -->
+    <section class="services spad" style="background-image:linear-gradient(#1CB5E0,#000046);">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="section-title">
+                        <img src="{% static "img/icon.png" %}" alt="">
+                        <h2>Enjoy All Aspects Of Yoga</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="services__list">
+                <div class="row">
+                    <div class="col-xl-2 col-md-4 col-sm-6">
+                        <div class="services__item">
+                            <img src="{% static "img/services/services-1.png" %}" alt="" class="rotate">
+                            <h5>Asana</h5>
+                            <p>Grab the opportunity to deepen your own yoga practice, relax, restore and experience
+                                nepal</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-sm-6">
+                        <div class="services__item" >
+                            <img src="{% static "img/services/services-2.png" %}" alt="" class="rotate">
+                            <h5>Meditation</h5>
+                            <p>Grab the opportunity to deepen your own yoga practice, relax, restore and experience
+                                nepal</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-sm-6">
+                        <div class="services__item">
+                            <img src="{% static "img/services/services-3.png" %}" alt="" class="rotate">
+                            <h5>Mudra</h5>
+                            <p>Grab the opportunity to deepen your own yoga practice, relax, restore and experience
+                                nepal</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-sm-6">
+                        <div class="services__item">
+                            <img src="{% static "img/services/services-4.png" %}" alt="" class="rotate">
+                            <h5>Bandhas</h5>
+                            <p>Grab the opportunity to deepen your own yoga practice, relax, restore and experience
+                                nepal</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-sm-6">
+                        <div class="services__item">
+                            <img src="{% static "img/services/services-5.png" %}" alt="" class="rotate">
+                            <h5>Philosophy</h5>
+                            <p>Grab the opportunity to deepen your own yoga practice, relax, restore and experience
+                                nepal</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-sm-6">
+                        <div class="services__item">
+                            <img src="{% static "img/services/services-6.png" %}" alt="" class="rotate">
+                            <h5>Pranayama</h5>
+                            <p>Grab the opportunity to deepen your own yoga practice, relax, restore and experience
+                                nepal!</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Chooseus Section Begin -->
+    <section class="chooseus spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="chooseus__text">
+                        <h2>Why Choose Us</h2>
+                        <p style="font-family: sans-serif;color:grey;justify-content: flex-start;">Exploring,Learning and healing potential within is the motto of shivatattvayog school discipline. Joyous life is of all the human being pursuits,striving to create and explore, transform oneself into a higher consciousness the most sacred.It is the pursuitness and sacredness that brings well being to all life.The basic purpose of shivatattvayog school is to inspire,to stoke and to nurture this innate search in every being , helping them to realize the utimate potential within through Lord Shiva consciousnes.</p>
+                    </div>
+                    <!-- <div class="chooseus__item">
+                        <div class="chooseus__item__icon">
+                            <img src="{% static "img/chooseus/choose-1.png" %}" alt="">
+                        </div>
+                        <div class="chooseus__item__text">
+                            <h2 class="choose-counter">2146</h2>
+                            <p>Students</p>
+                        </div>
+                    </div> -->
+                    <div class="chooseus__item">
+                        <div class="chooseus__item__icon">
+                            <img src="{% static "img/chooseus/choose-2.png" %}" alt="">
+                        </div>
+                        <div class="chooseus__item__text">
+                            <h2 class="choose-counter">15</h2>
+                            <p>Years Of Experience</p>
+                        </div>
+                    </div>
+                    <!-- <div class="chooseus__item">
+                        <div class="chooseus__item__icon">
+                            <img src="{% static "img/chooseus/choose-3.png" %}" alt="">
+                        </div>
+                        <div class="chooseus__item__text">
+                            <h2 class="choose-counter">1</h2>
+                            <p>Branches</p>
+                        </div>
+                    </div> -->
+                    <div class="chooseus__item">
+                        <div class="chooseus__item__icon">
+                            <img src="{% static "img/chooseus/choose-4.png" %}" alt="">
+                        </div>
+                        <div class="chooseus__item__text">
+                            <h2 class="choose-counter">10</h2>
+                            <p>Expert Staffs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="chooseus__pic">
+
+                        <iframe width="560" height="500" src="https://www.youtube.com/embed/rt1bsoOukjI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Chooseus Section End -->
+
+    
+
+    <!-- Classes Section Begin -->
+    <section class="upcoming-classes spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title normal-title">
+                        <h2>Trending Courses</h2>
+                        <p>The trainings are multi-style and you will learn and practice Hatha Vinyasa (flow)<br /> and
+                            Yin Yoga.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for i in course %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="classes__item classes__item__page">
+                        <div class="classes__item__pic set-bg" data-setbg="{{ i.file_mainpic.url }}">
+                        </div>
+                        <div class="classes__item__text">
+                            <ul>
+                                <li><span class="icon_calendar"></span> {{ i.week }}</li>
+                                <li><span class="icon_clock_alt"></span> {{i.Date}}</li>
+                            </ul>
+                            <h2><a href="#" class="course_title" style="color:black;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">{{ i.course_name|truncatechars:20 }}</a></h2>
+                            <br>
+                            <p><a href="#" style="color:blue ;" class="desc">{{ i.Description|truncatechars:150 }}</a></p>
+
+                            <h4><a href="#">{{ i.price }} USD</a></h4>
+                            <h6>{{ i.trainer_name }}<span>- Yoga Teacher</span></h6>
+                            <a href="{% url 'course_detail' pk=i.pk %}" class="class-btn">JOIN NOW</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                    </div>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <!-- Classes Section End -->
+
+    <section class="team spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <img src="{% static 'img/icon.png' %}" alt="">
+                        <h2>Meet Our Team</h2>
+                        <p>We search the entire world to provide you with passionate, authentic Yoga</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="team__slider owl-carousel">
+                    <div class="col-lg-6">
+                        <div class="team__item">
+                            <div class="team__item__pic">
+                                <img src="{% static 'img/team/devraj.png' %}" alt="" style="height:370px;">
+                            </div>
+                            <div class="team__item__text">
+                                <div class="team__item__title">
+                                    <h4>DevRaj Pathak</h4>
+                                    <span>Yoga Teacher</span>
+                                </div>
+                                <p>Yoga & Therapy Certificate of<br />Founder of shiv tattva yog school</p>
+                                <div class="team__item__social">
+                                    <a href="https://www.facebook.com/shivattvaschool"><i class="fa fa-facebook"></i></a>
+                                    <!-- <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="team__item">
+                            <div class="team__item__pic">
+                                <img src="{% static 'img/team/devraj.png' %}" alt="" style="height:350px;">
+                            </div>
+                            <div class="team__item__text">
+                                <div class="team__item__title">
+                                    <h4>Dev raj pathak</h4>
+                                    <span>Yoga Teacher</span>
+                                </div>
+                                <p>Yoga & Therapy Certificate of<br /> Uttarakhand University Sanskirt</p>
+                                <div class="team__item__social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="team__item">
+                            <div class="team__item__pic">
+                                <img src="{% static 'img/team/devraj.png' %}" alt="" style="height:350px;">
+                            </div>
+                            <div class="team__item__text">
+                                <div class="team__item__title">
+                                    <h4>Dev raj pathak</h4>
+                                    <span>Yoga Teacher</span>
+                                </div>
+                                <p>Yoga & Therapy Certificate of<br /> </p>
+                                <div class="team__item__social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section Begin -->
+    <section class="gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title normal-title">
+                        <h2>Our Gallery</h2>
+                        <p>This is the beautiful yogi and yoginis that have shared their journey and growth with<br />
+                            us. Take a look!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-6 p-0">
+                    <div class="gallery__pic">
+                        <img src="{% static "img/gallery/img1.jpeg" %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 p-0">
+                    <div class="gallery__pic">
+                        <img src="{% static "img/gallery/img2.jpeg" %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 p-0">
+                    <div class="gallery__pic">
+                        <img src="{% static "img/gallery/img3.jpeg" %}" alt="" style="height:316px;">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 p-0">
+                    <div class="gallery__pic">
+                        <img src="{% static "img/gallery/img4.jpeg" %}" alt="" style="height:316px;" >
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 p-0">
+                    <div class="gallery__pic">
+                        <img src="{% static "img/gallery/img5.jpeg" %}" alt="" style="height:300px;">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 p-0">
+                    <div class="gallery__pic">
+                        <img src="{% static "img/gallery/img6.jpeg" %}" alt="" style="height:300px;">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 p-0">
+                    <div class="gallery__pic">
+                        <img src="{% static "img/gallery/img8.jpeg" %}" alt="" style="height:300px;">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 p-0">
+                    <div class="gallery__pic">
+                        <img src="{% static "img/gallery/img9.jpeg" %}" alt="" style="height:300px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Section End -->
+
+    <!-- Team Section Begin -->
+    <!-- <section class="instructor spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title normal-title">
+                        <h2>Meet Our Instructors</h2>
+                        <p>Our Indian and western teachers are highly qualified and will be happy to share this<br />
+                            spiritual journey with you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for i in trainer %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="instructor__item">
+                        <div class="instructor__item__pic">
+                            <img src="{{ i.trainer_pic.url }}" alt="" style="height:200px;width:200px;">
+                        </div>
+                        <div class="instructor__item__text">
+                            <h5>{{i.trainer_name }}</h5>
+                            <span>{{ i.expertise }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %} -->
+
+                <!-- <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="instructor__item">
+                        <div class="instructor__item__pic">
+                            <img src="{% static "img/instructor/instructor-2.jpg" %}" alt="">
+                        </div>
+                        <div class="instructor__item__text">
+                            <h5>Rebecca James</h5>
+                            <span>Yoga Trainer</span>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="instructor__item">
+                        <div class="instructor__item__pic">
+                            <img src="{% static "img/instructor/instructor-3.jpg" %}" alt="">
+                        </div>
+                        <div class="instructor__item__text">
+                            <h5>Melissa Smith</h5>
+                            <span>Yoga Trainer</span>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="instructor__item">
+                        <div class="instructor__item__pic">
+                            <img src="{% static "img/instructor/instructor-4.jpg" %}" alt="">
+                        </div>
+                        <div class="instructor__item__text">
+                            <h5>Emily Walker</h5>
+                            <span>Yoga Trainer</span>
+                        </div>
+                    </div>
+                </div> -->
+            <!-- </div>
+        </div>
+    </section> -->
+    <!-- Team Section End -->
+
+    <!-- Appoinment Section Begin -->
+    <section class="appointment" style="margin-top:20px;">
+        <div class="container">
+            <div class="appointment__text">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <img src="{% static "img/icon-white.png" %}" alt="">
+                            <h2>Make An Appointment</h2>
+                        </div>
+                    </div>
+                </div>
+                <form action="{% url 'home' %}" method="post" class="appointment__form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="Name" name="Name">
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="Email" name="Email">
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="Phone" name="Phone">
+                        </div>
+                        <div class="col-lg-6">
+                            <select class="class-select" name="classes">
+                                <option value="ashtangha">Ashtanga</option>
+                                <option value="Hatha">Hatha</option>
+
+                            </select>
+                        </div>
+                        <div class="col-lg-12 text-center">
+                            <textarea placeholder="Message" name="messages"></textarea>
+                            <button type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Appoinment Section End -->
+
+    <!-- Testimonial Section Begin -->
+    <!-- <section class="testimonial spad">
+        <div class="container">
+            <div class="testimonial__slider owl-carousel">
+                <div class="testimonial__item">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="testimonial__text">
+                                <p>This is my second time completing a 200 hr TTC from Zogin and I loved the experiences
+                                    even more than the first time that I had done in 2014.</p>
+                                <img src="{% static "img/testimonial/testimonial-1.png" %}" alt="">
+                                <h5>Linnie Walton <span>- Trainer</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial__item">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="testimonial__text">
+                                <p>This is my second time completing a 200 hr TTC from Zogin and I loved the experiences
+                                    even more than the first time that I had done in 2015.</p>
+                                <img src="{% static "img/testimonial/testimonial-1.png" %}" alt="">
+                                <h5>Linnie Walton <span>- Trainer</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial__item">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="testimonial__text">
+                                <p>This is my second time completing a 200 hr TTC from Zogin and I loved the experiences
+                                    even more than the first time that I had done in 2016.</p>
+                                <img src="{% static "img/testimonial/testimonial-1.png" %}" alt="">
+                                <h5>Linnie Walton <span>- Trainer</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial__item">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="testimonial__text">
+                                <p>This is my second time completing a 200 hr TTC from Zogin and I loved the experiences
+                                    even more than the first time that I had done in 2017.</p>
+                                <img src="{% static "img/testimonial/testimonial-1.png" %}" alt="">
+                                <h5>Linnie Walton <span>- Trainer</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Testimonial Section End -->
+    {% endblock %}
+    <!-- Footer Section Begin -->
+    <section class="footer" style="margin-top:20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6" style="margin-left:50px;">
+                    <div class="footer__about">
+                        <img src="{% static "img/logo.png" %}" alt="" style="width:100px;height:50px;">
+                        <ul>
+                            <li><i class="fa fa-clock-o"></i> Mon - Fri: 6:30am - 07:45pm</li>
+                            <li><i class="fa fa-clock-o"></i> Sat - Sun: 8:30am - 05:45pm</li>
+                        </ul>
+                        <form action="{% url 'email' %}" method="post" class="subscribe-form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="text" placeholder="email" name="email">
+
+                            <button type="submit"><i class="fa fa-send"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Inspiration</h5>
+                        <ul>
+                            <li><a href="#">Online Pilates</a></li>
+                            <li><a href="#">Yoga for Beginners</a></li>
+                            <li><a href="#">Online Pilates</a></li>
+                            <li><a href="#">Online Yoga</a></li>
+                            <li><a href="#">Conditioning</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>About Us</h5>
+                        <ul>
+                            <li><a href="#">Our Vision</a></li>
+                            <li><a href="#">Our Mission</a></li>
+                            <li><a href="#">Meet The Team</a></li>
+                            <li><a href="#">Introduce</a></li>
+                            <li><a href="#">Customer Service</a></li>
+                        </ul>
+                    </div>
+                </div> -->
+                <div class="col-lg-3 col-md-6 col-sm-6" style="margin-left:400px;">
+                    <div class="footer__widget">
+                        <h5>Contact Us</h5>
+                        <ul class="footer-address">
+                            <li><i class="fa fa-phone"></i> (01) 436 8888</li>
+                            <li><i class="fa fa-envelope"></i> hello@zogin.com</li>
+                            <li><i class="fa fa-location-arrow"></i> 828 Granville Lights Suite 466</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        </div>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="footer__copyright__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/jquery.nice-select.min.js" %}"></script>
+    <script src="{% static "js/jquery.barfiller.js" %}"></script>
+    <script src="{% static "js/jquery.slicknav.js" %}"></script>
+    <script src="{% static "js/owl.carousel.min.js" %}"></script>
+    <script src="{% static "js/main.js" %}"></script>
+</body>
+
+</html>
