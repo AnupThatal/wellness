@@ -562,6 +562,8 @@ ol {
 	margin-bottom: 0;
 }
 
+/* CSS */
+
 /*---------------------
   Chooseus
 -----------------------*/
@@ -1779,6 +1781,17 @@ ol {
 	color: #5768AD;
 	margin-right: 10px;
 }
+
+.card-container {
+    display: flex;
+    justify-content: space-between; /* Distribute space between cards */
+    align-items: center;
+    height: 300px;
+}
+
+
+
+
 
 /*---------------------
   Leave Comment
@@ -3011,3 +3024,4 @@ ol {
 		font-size: 16px;
 	}
 }
+

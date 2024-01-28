@@ -1,0 +1,23 @@
+<html>
+<body>
+    <h3 style="text-align:center;">you will be redirected to esewa website ..</h3>
+    <form action="https://uat.esewa.com.np/epay/main" method="POST" id="myform">
+    <input value="{{ t }}" name="tAmt" type="hidden">
+    <input value="{{ t }}" name="amt" type="hidden">
+    <input value="0" name="txAmt" type="hidden">
+    <input value="0" name="psc" type="hidden">
+    <input value="0" name="pdc" type="hidden">
+    <input value="epay_payment" name="scd" type="hidden">
+    <input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden">
+    <input value="http://127.0.0.1:8000/" type="hidden" name="su">
+    <input value="{{request.build_absolute_uri}}" type="hidden" name="fu">
+    <input value="Submit" type="submit">
+
+    </form>
+    <script>
+        setTimeout(function(){
+        document.getElementById("myform").submit()
+        },500)
+    </script>
+</body>
+</html>

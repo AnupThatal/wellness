@@ -5,7 +5,7 @@
     <!-- Header Section End -->
 {% block content %}
     <!-- Breadcrumb Begin -->
-    <section class="breadcrumb-option set-bg" data-setbg="{% static "img/breadcrumb.jpg" %}">
+    <!-- <section class="breadcrumb-option set-bg" data-setbg="{% static "img/breadcrumb.jpg" %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Breadcrumb End -->
 
     <!-- Blog Section Begin -->
@@ -45,7 +45,7 @@
                             </ul>
                         </div> -->
                         <div class="blog__sidebar__recent">
-                            <h4>Recent News</h4>
+                            <h4>Recent Blog</h4>
 
                             <div class="blog__recent__item">
 
@@ -53,12 +53,13 @@
 
 
                                 <div class="blog__recent__item__pic">
+                                    <img src="{{ i.main_pic1.url }}" alt="" style="height: 30px; width: 30px;">
 
-                                    <img src="{{ i.main_pic1.url }}" alt="" style="height:50px;width:50px;">
+
                                 </div>
                                 <div class="blog__recent__item__text">
                                     <h6>{{ i.title }}</h6>
-                                    <span>MAR 05, 2019</span>
+                                    <span>{{ i.Date }}</span>
 
                                 </div>
 
@@ -132,16 +133,13 @@
                                 </div>
                                 <div class="blog__item__text">
                                     <ul>
-                                        <li><i class="fa fa-calendar-o"></i> May 4, 2019</li>
-                                        <li><i class="fa fa-comment-o"></i> 5</li>
+                                        <li><i class="fa fa-calendar-o"></i>{{ i.Date }}</li>
+                                        <!-- <li><i class="fa fa-comment-o"></i> 5</li> -->
                                     </ul>
                                     <h5><a href="#">{{ i.title|truncatechars:35 }} </a></h5>
                                     <p style="text-align:justify;">{{ i.content|truncatechars:200}}</p>
                                     <a href="{% url 'blog_detail' pk=i.pk %}" class="blog_read_more">READ MORE <span class="arrow_right"></span></a>
-                                    <!-- {% if request.user == i.username %}
-                                    <a href="{% url 'delete_post' pk=i.pk %}" ><i class="fa fa-trash fa-1x" aria-hidden="true"></i></a>
-                                    <a href="{% url 'update_post' pk=i.pk %}" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                    {% endif %} -->
+                           
 
 
                                 </div>

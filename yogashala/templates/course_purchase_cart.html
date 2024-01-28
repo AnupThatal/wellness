@@ -1,0 +1,106 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Display Cart Items -->
+        <div class="col-md-6" style="margin-top: 25px;">
+            <div class="card billing-container shadow-lg">
+                <div class="card-body">
+                    {% for item in carts %}
+                        <div class="row billing-item mb-4 p-4 bg-light rounded">
+                            <div class="col-md-5 billing-item-details">
+                                <h5 class="card-title text-primary">{{ item.name }}</h5>
+                                <img src="{{ item.img }}" class="img-fluid" style="width: 85px; height: 65px;" alt="{{ item.name }}">
+                            </div>
+                            <div class="col-md-3 billing-item-quantity">
+                                <div class="text-muted">Required</div>
+                                <div>{{ item.count }}</div>
+                            </div>
+                            <div class="col-md-2 billing-item-price">
+                                <p class="text-success font-weight-bold">Price: {{ item.price }}</p>
+                            </div>
+                            <div class="col-md-2 billing-item-price">
+                                <a href="{% url 'remove_from_cart' product_id=item.id %}" class="text-muted ms-2"><i class="fa fa-trash fa-2x"></i></a>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                    <p>Total cost: {{ total_p }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Styling for Purchase Form Section -->
+        <div class="col-md-6">
+            <div class="card mt-4 billing-container shadow-lg">
+                <div class="card-body">
+                    <h2 class="mb-4 text-primary">Purchase Form</h2>
+                    <form method="post" action="{% url 'course_purchase_cart' %}">
+                        {% csrf_token %}
+                        <!-- Basic customer information -->
+                        <div class="form-group">
+                            <label for="id_name" class="text-primary">Name:</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_country" class="text-primary">Country:</label>
+                            <input type="text" name="country" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_location" class="text-primary">Location:</label>
+                            <input type="text" name="location" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_email" class="text-primary">Email:</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+                        <!-- Additional customer details -->
+                        <div class="form-group">
+                            <label for="id_contact" class="text-primary">Contact:</label>
+                            <input type="text" name="contact" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_any_special_request" class="text-primary">Any Special Request:</label>
+                            <textarea name="any_special_request" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="text-primary">Payment Options:</label>
+                            <div class="form-check">
+                                <input type="radio" id="esewa" name="payment_option" value="esewa" class="form-check-input" required>
+                                <label for="esewa" class="form-check-label">eSewa</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="international" name="payment_option" value="international" class="form-check-input" required>
+                                <label for="international" class="form-check-label">card</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="international" name="payment_option" value="cod" class="form-check-input" required>
+                                <label for="cod" class="form-check-label">payment on puja</label>
+                            </div>
+                            <!-- Add more payment options as needed -->
+                        </div>
+        
+
+
+
+                        
+                        <!-- Courses selection -->
+                        <!-- <div class="form-group text-center">
+                            <label for="id_items" class="text-primary">Select Courses:</label>
+                            <ul class="list-group d-inline-block">
+                                {% for course in carts %}
+                                    <li class="list-group-item">{{ course.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div> -->
+                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

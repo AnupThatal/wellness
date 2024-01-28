@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="eng">
 
@@ -9,10 +10,11 @@
     <meta name="keywords" content="Directing, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Shiv tattva yog school</title>
+    <title>Welcome to Guruji services</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" type="text/css">
@@ -110,36 +112,53 @@
   width: 100%;
 }
 
+.card-img-container{
+    height:140px;
+}
+.card-img-container img{
+    height:150px;
+}
+
+/* .card-title{
+    text-size-adjus;
+
+    
+} */
+
+.card-text{
+
+    font-size: 15px;
+    text-align: start;
+
+}
+
+@media (max-width: 767px) {
+        .col-xl-8 {
+            margin-right: 0;
+        }
+    }
+
 
 
 
 </style>
 
-
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
 
-    <!-- Offcanvas Menu Begin -->
+
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu">
         <div class="offcanvas__logo">
-            <a href="{% url 'home' %}"><img src="{% static "img/logo.png" %}" alt="" style="height:50px;width:30px;"></a>
+            <a href="{% url 'home' %}"><img src="{% static 'img/logo1.png' %}" alt="" style="width:150px; height:60px;"></a>
+
         </div>
+
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__widget">
             <ul>
-                <li>CALL US: + 1 800-567-8990</li>
-                <li>WRITE US: OFFICE@EXAMPLE.COM</li>
-                <li>        {{ messages }}
-                </li>
+                <li>Hotline: +977 9869111406</li>
+                <li>Email: panditatservices@gmail.com</li>
             </ul>
-        
-
-
-
         </div>
 
 
@@ -148,47 +167,66 @@
             <ul class="mobile-menu">
                 <li class="active"><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'courses' %}">Classes</a></li>
-                <li><a href="{% url 'courses' %}">Classes</a>
+                <li><a href="{% url 'courses' %}">Puja Services</a></li>
+                <li><a>Find your pandit</a>
                     <ul class="dropdown">
-                        <li><a href="./classes-details.html">Classes Details</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                        <li><a href="./pricing.html">Pricing</a></li>
-                        <li><a href="./faq.html">Faq</a></li>
+
+                        <ul>
+                        <li><a href="{% url 'findpandit' name='Canada' %}" >Canada</a></li>
+                        <li><a href="{% url 'findpandit' name='India' %}"   >India</a></li>
+                        <li><a href="{% url 'findpandit' name='Nepal' %}" >Nepal</a></li>    
+                        <li><a href="{% url 'findpandit' name='USA' %}" >USA</a></li>    
+                        <li><a href="{% url 'findpandit' name='Australia' %}" >Australia</a></li>    
+                    </ul>
+                    
                     </ul>
                 </li>
+               
                 <li><a href="{% url 'blogs' %}">Blog</a></li>
-                <!-- <li><a href="./contact.html">Contact</a></li> -->
+                <a href="{% url 'create_pandit' %}" class="btn btn-warning">
+                    <i class="fa fa-user fa-lg"></i>
+                    Become a pandit
+                  </a>
+                  <br>
+
+                  <a href="{% url 'view_cart' %}" class="btn btn-warning">
+                    <i class="fa fa-shopping-basket fa-lg"></i>
+                    Cart: {{ count}}
+                  </a>
             </ul>
         </nav>
         <div class="offcanvas__social">
             <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
+
+
+
         </div>
     </div>
     <!-- Offcanvas Menu End -->
 
     <!-- Header Section Begin -->
-    <header class="header">
+    <header class="header" style="background-color: whitesmoke;">
         <div class="header__top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-3">
+                    <div class="col-lg-2 col-md-3">
                         <div class="header__logo">
-                            <a href="{% url 'home' %}"><img src="{% static "img/logo.png" %}" alt="" style="height:50px;width:100px;"></a>
+                            <a href="{% url 'home' %}">
+                                <img src="{% static 'img/logo1.png' %}" alt="Logo" style="width: 150px; height: 60px;">
+                            </a>
                         </div>
                     </div>
-
-
+    
                     <div class="col-lg-9 col-md-9">
-
                         <div class="header__top__widget">
-                        
-
-                            
-                        
+                            <a href="{% url 'create_pandit' %}" class="btn btn-warning">
+                                <i class="fa fa-user fa-lg"></i> Become a Pandit
+                            </a>
+                            <a href="{% url 'view_cart' %}" class="btn btn-warning">
+                                <i class="fa fa-shopping-basket fa-lg"></i> Cart: {{ count }}
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -197,27 +235,26 @@
                 </div>
             </div>
         </div>
-
-        <div class="header__nav">
-
+    
+        <div class="header__nav" style="background-image:linear-gradient(to top,#f7b733,#fc4a1a);border: 2px solid whitesmoke; font-family: sans-serif;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 col-md-9">
                         <nav class="header__menu">
                             <ul>
-                                <li class="active"><a href="{% url 'home' %}" style="color:burlywood;">Home</a></li>
-                                <li><a href="{% url 'about' %}" style="color:burlywood;">About</a></li>
-                                <li><a href="{% url 'courses' %}" style="color:burlywood;">Classes</a></li>
-                                <li><a href="{% url 'courses' %}" style="color:burlywood;" >Pages</a>
+                                <li class="active"><a href="{% url 'home' %}" style="color: black;">Home</a></li>
+                                <li><a href="{% url 'about' %}" style="color: black;">About</a></li>
+                                <li><a href="{% url 'courses' %}" style="color: black;">Puja Services</a></li>
+                                <li><a style="color: black;">Find Your Pandit</a>
                                     <ul class="dropdown">
-                                        <li><a href="./classes-details.html" style="color:burlywood;">Classes Details</a></li>
-                                        <li><a href="./blog-details.html" style="color:burlywood;">Blog Details</a></li>
-                                        <li><a href="./pricing.html" style="color:burlywood;">Pricing</a></li>
-                                        <li><a href="./faq.html" style="color:burlywood;">Faq</a></li>
+                                        <li><a href="{% url 'findpandit' name='Canada' %}" style="color: black;">Canada</a></li>
+                                        <li><a href="{% url 'findpandit' name='India' %}" style="color: black;">India</a></li>
+                                        <li><a href="{% url 'findpandit' name='Nepal' %}" style="color: black;">Nepal</a></li>
+                                        <li><a href="{% url 'findpandit' name='USA' %}" style="color: black;">USA</a></li>
+                                        <li><a href="{% url 'findpandit' name='Australia' %}" style="color: black;">Australia</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{% url 'blogs' %}" style="color:burlywood;">Blog</a></li>
-                                <!-- <li><a href="./contact.html" style="color:burlywood;">Contact</a></li> -->
+                                <li><a href="{% url 'blogs' %}" style="color: black;">Blog</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -233,671 +270,291 @@
             </div>
         </div>
     </header>
+    
     <!-- Header Section End -->
     {% block content %}
-    <!-- Hero Section Begin -->
-    <section class="hero">
-        <div class="hero__sliders owl-carousel">
-            <div class="hero__items set-bg" data-setbg="{% static "img/hero/hero-3.jpg" %}">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="hero__text">
-                                <span style="text-decoration-color: aquamarine;">Welcome to Shiv yog school</span>
-                                <h2>What hurts today makes you stronger tomorrow</h2>
-                                <a href="#" class="primary-btn">DISCOVER MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero__items set-bg" data-setbg="{% static "img/hero/hero-3.jpg" %}">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="hero__text">
-                                <span  data-toggle="animation" data-animation-reset="false" data-animation="slide-right">Shiv tattva yog school</span>
-                                <h2>What hurts today makes you stronger tomorrow</h2>
-                                <a href="#" class="primary-btn">DISCOVER MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <div class="counter spad" style="margin-top:50px;">
-        <div class="container">
-            <div class="counter__text set-bg" data-setbg="{% static 'img/counter/counter-bg.jpg' %}">
-                <div class="counter__item">
-                    <div class="counter__item__icon">
-                        <img src="{% static 'img/counter/counter-1.png' %}" alt="">
-                    </div>
-                    <div class="counter__item__text">
-                        <h2>2000+</h2>
-                        <p>Students</p>
-                    </div>
-                </div>
-                <div class="counter__item">
-                    <div class="counter__item__icon">
-                        <img src="{% static 'img/counter/counter-2.png' %}" alt="">
-                    </div>
-                    <div class="counter__item__text">
-                        <h2>10</h2>
-                        <p>Years Of Experience</p>
-                    </div>
-                </div>
-                <!-- <div class="counter__item">
-                    <div class="counter__item__icon">
-                        <img src="{% static 'img/counter/counter-3.png' %}" alt="">
-                    </div>
-                    <div class="counter__item__text">
-                        <h2>10</h2>
-                        <p>Branches</p>
-                    </div>
-                </div> -->
-                <div class="counter__item">
-                    <div class="counter__item__icon">
-                        <img src="{% static 'img/counter/counter-4.png' %}" alt="">
-                    </div>
-                    <div class="counter__item__text">
-                        <h2>10</h2>
-                        <p>Expert Staffs</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>  
-   
-    <!-- Hero Section End -->
-
-    <!-- About Section Begin -->
-    <section class="home-about spad" style="background-image:linear-gradient(#bfbfdb,#1CB5E0);">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7">
-                    <div class="home__about__pic">
-                        <div class="home__about__pic__item large-item set-bg" data-setbg="{% static "img/about/about-1.jpeg" %}"></div>
-                        <div class="home__about__pic__item">
-                            <div class="home__about__pic__item__inner set-bg" data-setbg="{% static "img/about/about-5.jpg" %}"></div>
-                            <div class="home__about__pic__item__inner set-bg" data-setbg="{% static "img/about/about-6.jpeg" %}"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="home__about__text">
-                        <div class="section-title">
-                            <img src="{% static "img/icon.png" %}" alt="">
-                            <h2><h2 class="text" data-fill-text="Welcome to shiv tattva yog school">Welcome to Shiv tattava  yog school</h2></h2>
-                        </div>
-                        <span>“What hurts today makes you stronger tomorrow.”</span>
-                        <p style="font-family:sans-serif;font-size:20px;">We are offering internationally certified 200 Hour Yoga Teacher Training in Rishikesh and 300
-                            hour yoga teacher training in Rishikesh, India - Join us to have such life-transforming
-                            experience in The world capital of Yoga in Rishikesh.</p>
-                        <p class="para-2">Zogin is a great place for those who are in search of the ancient practice and
-                            true essence of yoga, meditation, health, peace and learning the art of creating a class to
-                            teach safely. We are passionate about adjustments and mainly focus on the alignment of the
-                            asanas.</p>
-                        <a href="{% url 'about' %}" class="primary-btn">MORE ABOUT US</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- About Section End -->
-
-    <!-- Services Section Begin -->
-    <section class="services spad" style="background-image:linear-gradient(#1CB5E0,#000046);">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-12">
-
-                    <div class="section-title">
-                        <img src="{% static "img/icon.png" %}" alt="">
-                        <h2>Enjoy All Aspects Of Yoga</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="services__list">
+        <section style="margin:50px;">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xl-2 col-md-4 col-sm-6">
-                        <div class="services__item">
-                            <img src="{% static "img/services/services-1.png" %}" alt="" class="rotate">
-                            <h5>Asana</h5>
-                            <p>Grab the opportunity to deepen your own yoga practice, relax, restore and experience
-                                nepal</p>
+                    <div class="col-xl-8" style="margin-right: 20px; text-align: center;">
+                        <p style="background-image:linear-gradient(90deg,red,blue);background-clip:text;color: transparent;font-size:25px;">Discover Special Offers for Upcoming Pooja
+                        </p>
+                        <h1 style="color: #333; font-size: 2.2em; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; margin-bottom: 10px;">Finding Purohit for Pooja in Your Hometown</h1>
+                        <p style="color: #555; margin-top: 15px; color: #333; margin-bottom: 20px;">Explore the best-in-class mentoring plans and professional for pooja</p>
+                        <a href="{% url 'courses' %}" style="padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 10px; cursor: pointer; border: 2px solid #3498db; background-color: #3498db; color: #fff; border-radius: 5px;">Book for pooja</a>
+                        <a href="{% url 'findpandit' name='Nepal' %}" style="padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 10px; cursor: pointer; border: 2px solid #3498db; background-color: #3498db; color: #fff; border-radius: 5px;">Find a Pandit</a>
+                        <!-- <h2 style="font-family:Arial,sans-serif;text-transform: uppercase;font-weight: bold;color: #333333;margin-left:-30px;"></h2> -->
+                        <div class="row" style="margin: 10px; margin-top: 20px;">
+                            <div class="col-sm-12 col-md-6">
+                                <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px;">
+                                    <div>
+                                        <i class="fa fa-users fa-3x" style="color: orange;"></i>
+                                    </div>
+                                    <div>
+                                        <p style="font-weight: bold;color: #333;">100+ pujari and pandit connect according to your needs</p>
+                                    </div>
+                                    <div>
+                                        <i class="fa fa-location-arrow fa-3x" style="color: #99f"></i>
+                                    </div>
+                                    <div>
+                                        <p style="font-weight: bold;color: #333;">E-services for performing puja from any part of the world.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px;">
+                                    <div>
+                                        <i class="fa fa-star fa-3x" style="color: rgb(211, 211, 50)"></i>
+                                    </div>
+                                    <div>
+                                        <p style="font-weight: bold;color: #333;">Designed specifically for your customized puja, for a meaningful connection.</p>
+                                    </div>
+                                    <div>
+                                        <i class="fa fa-hand-o-right fa-3x" style="color: #3498db;"></i>
+                                    </div>
+                                    <div>
+                                        <p style="font-weight: bold;color: #333;">Receive expert guidance from our pandits on selecting rituals.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4 col-sm-6">
-                        <div class="services__item" >
-                            <img src="{% static "img/services/services-2.png" %}" alt="" class="rotate">
-                            <h5>Meditation</h5>
-                            <p>Grab the opportunity to deepen your own yoga practice, relax, restore and experience
-                                nepal</p>
+                        
+                        
+                        
+                        
+                    </div>                               
+                    <div class="col-xl-2">
+                        <div class="card" style="height:250px; width: 200px; margin-top: 10px; border-radius: 15px; overflow: hidden; position: relative;">
+                            <img src="{% static 'img/pexels-aarti-vijay-2900315.jpg' %}" class="img-fluid" style="object-fit: cover; width: 100%; height: 100%; border-radius: 15px;">
+                            <!-- You can add overlay text or other elements here if needed -->
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4 col-sm-6">
-                        <div class="services__item">
-                            <img src="{% static "img/services/services-3.png" %}" alt="" class="rotate">
-                            <h5>Mudra</h5>
-                            <p>Grab the opportunity to deepen your own yoga practice, relax, restore and experience
-                                nepal</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4 col-sm-6">
-                        <div class="services__item">
-                            <img src="{% static "img/services/services-4.png" %}" alt="" class="rotate">
-                            <h5>Bandhas</h5>
-                            <p>Grab the opportunity to deepen your own yoga practice, relax, restore and experience
-                                nepal</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4 col-sm-6">
-                        <div class="services__item">
-                            <img src="{% static "img/services/services-5.png" %}" alt="" class="rotate">
-                            <h5>Philosophy</h5>
-                            <p>Grab the opportunity to deepen your own yoga practice, relax, restore and experience
-                                nepal</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4 col-sm-6">
-                        <div class="services__item">
-                            <img src="{% static "img/services/services-6.png" %}" alt="" class="rotate">
-                            <h5>Pranayama</h5>
-                            <p>Grab the opportunity to deepen your own yoga practice, relax, restore and experience
-                                nepal!</p>
-                        </div>
-                    </div>
-                </div>
 
-            </div>
-        </div>
-    </section>
-    <!-- Services Section End -->
 
-    <!-- Chooseus Section Begin -->
-    <section class="chooseus spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="chooseus__text">
-                        <h2>Why Choose Us</h2>
-                        <p style="font-family: sans-serif;color:grey;justify-content: flex-start;">Exploring,Learning and healing potential within is the motto of shivatattvayog school discipline. Joyous life is of all the human being pursuits,striving to create and explore, transform oneself into a higher consciousness the most sacred.It is the pursuitness and sacredness that brings well being to all life.The basic purpose of shivatattvayog school is to inspire,to stoke and to nurture this innate search in every being , helping them to realize the utimate potential within through Lord Shiva consciousnes.</p>
+                        <div class="card" style="height: 250px; width: 200px; margin-top: -70px; margin-left: 130px; border-radius: 15px; overflow: hidden; position: relative;padding: 10px;">
+                            <!-- <img src="{% static 'img/pexels-himesh-mehta-3519190.jpg' %}" class="img-fluid" style="object-fit: cover; width: 100%; height: 100%; border-radius: 15px;"> -->
+                            <blockquote class="blockquote">
+                                <p style="color: black;text-align: center;">
+                                  <i class="text-warning"></i>
+                                  <span class="font-italic">"Lord Ganesha, the remover of obstacles and the embodiment of wisdom, blesses our journey with grace. In His benevolent presence, challenges transform into opportunities."</span>
+                                </p>
+                              </blockquote>                        
+                            </div>
+                            
                     </div>
-                    <!-- <div class="chooseus__item">
-                        <div class="chooseus__item__icon">
-                            <img src="{% static "img/chooseus/choose-1.png" %}" alt="">
-                        </div>
-                        <div class="chooseus__item__text">
-                            <h2 class="choose-counter">2146</h2>
-                            <p>Students</p>
-                        </div>
-                    </div> -->
-                    <div class="chooseus__item">
-                        <div class="chooseus__item__icon">
-                            <img src="{% static "img/chooseus/choose-2.png" %}" alt="">
-                        </div>
-                        <div class="chooseus__item__text">
-                            <h2 class="choose-counter">15</h2>
-                            <p>Years Of Experience</p>
-                        </div>
-                    </div>
-                    <!-- <div class="chooseus__item">
-                        <div class="chooseus__item__icon">
-                            <img src="{% static "img/chooseus/choose-3.png" %}" alt="">
-                        </div>
-                        <div class="chooseus__item__text">
-                            <h2 class="choose-counter">1</h2>
-                            <p>Branches</p>
-                        </div>
-                    </div> -->
-                    <div class="chooseus__item">
-                        <div class="chooseus__item__icon">
-                            <img src="{% static "img/chooseus/choose-4.png" %}" alt="">
-                        </div>
-                        <div class="chooseus__item__text">
-                            <h2 class="choose-counter">10</h2>
-                            <p>Expert Staffs</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="chooseus__pic">
-
-                        <iframe width="560" height="500" src="https://www.youtube.com/embed/rt1bsoOukjI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+                    
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Chooseus Section End -->
-
+        </section>
+        <section>
+            <div style="display: flex;flex-direction: column;align-items: center;justify-self:center;">
+                <h2 style="font-family: Arial, sans-serif;text-transform: uppercase;font-weight: bold;color: #242424;">Services</h2>
+            </div>
+            <div class="container">
+                <div class="row">
+                    {% for i in course %}
+                        <div class="col-xl-4 p-5">
+                            <div class="card" style="overflow: hidden; position: relative; border: 1px solid #ddd; border-radius: 10px;">
+                                <div class="card-body" style="display:flex; flex-direction:column; align-items:center;gap:2px;justify-content: center;">
+                                    <img src="{{ i.file_mainpic.url }}" class="img-fluid" style="object-fit: cover; height: 250px;">
+                                    <h2 style="text-transform: uppercase; font-family: verdana; font-size: 18px; font-weight: bold;">{{ i.course_name }}</h2>
+                                    <!-- <p style="font-family: verdana; text-align: justify; font-size:14px;">{{ i.Description|truncatechars:150 }}</p> -->
+                                    <a href="{% url 'course_detail' pk=i.pk %}" class="btn btn-primary btn-sm" style="width: 120px;">Book Pooja</a>
+                                    <a href="{% url 'add_cart' pk=i.pk %}" class="btn btn-primary btn-sm" style="width: 120px;">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="text-center mt-4" style="margin-bottom: 10px;">
+                <a href="{% url 'courses' %}" class="btn btn-info">View More</a>
+            </div>
+        </section>
+            
+        
+    
+        <section class="home-about spad" style="background-color: #f9f9f9;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="home-about-pic">
+                            <div class="home-about-pic-item large-item set-bg" data-setbg="{% static 'img/about/about-1.jpeg' %}"></div>
+                            <div class="home-about-pic-item">
+                                <div class="home-about-pic-item-inner set-bg" data-setbg="{% static 'img/about/about-5.jpg' %}"></div>
+                                <div class="home-about-pic-item-inner set-bg" data-setbg="{% static 'img/about/about-6.jpeg' %}"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="home-about-text" style="margin-top: -120px;">
+                            <div class="container mt-5">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8">
+                                        <p class="text-center home-about-description" style="font-family: 'Open Sans', sans-serif; font-size: 18px; color: #333;">
+                                            Welcome to My Guruji Services, your trusted companion on a spiritual journey. As a new force, we are dedicated to delivering exceptional Hindu pooja services, Vedic Rituals, Religious Ceremonies, and Astrology Services with unwavering commitment.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container mt-5">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6 col-lg-4">
+                                        <p class="text-center home-about-icon" style="font-size: 50px; color: #FFD700;">&#11088;</p>
+                                        <p class="text-center home-about-feature" style="font-family: 'Open Sans', sans-serif; font-size: 16px; color: #555;">
+                                            Fresh Energy: We bring a vibrant and enthusiastic perspective to enrich your spiritual experiences.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <p class="text-center home-about-icon" style="font-size: 50px; color: #4CAF50;">&#129496;</p>
+                                        <p class="text-center home-about-feature" style="font-family: 'Open Sans', sans-serif; font-size: 16px; color: #555;">
+                                            Trusted Experts: Our team comprises highly qualified and experienced Shastries and Pandits, carefully chosen to guide you on your path.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <p class="text-center home-about-icon" style="font-size: 50px; color: #3498db;">&#127969;</p>
+                                        <p class="text-center home-about-feature" style="font-family: 'Open Sans', sans-serif; font-size: 16px; color: #555;">
+                                            Pooja at Your Doorstep: Experience the convenience of pooja performed in the comfort of your own home.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
     
 
-    <!-- Classes Section Begin -->
-    <section class="upcoming-classes spad">
+    <section style="margin: 10px;">
+        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <h3 style="font-weight: bold;">Exploring Divine Blogs</h3>
+        </div>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title normal-title">
-                        <h2>Trending Courses</h2>
-                        <p>The trainings are multi-style and you will learn and practice Hatha Vinyasa (flow)<br /> and
-                            Yin Yoga.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                {% for i in course %}
-                <div class="col-lg-4 col-md-6">
-                    <div class="classes__item classes__item__page">
-                        <div class="classes__item__pic set-bg" data-setbg="{{ i.file_mainpic.url }}">
-                        </div>
-                        <div class="classes__item__text">
-                            <ul>
-                                <li><span class="icon_calendar"></span> {{ i.week }}</li>
-                                <li><span class="icon_clock_alt"></span> {{i.Date}}</li>
-                            </ul>
-                            <h2><a href="#" class="course_title" style="color:black;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">{{ i.course_name|truncatechars:20 }}</a></h2>
-                            <br>
-                            <p><a href="#" style="color:blue ;" class="desc">{{ i.Description|truncatechars:150 }}</a></p>
-
-                            <h4><a href="#">{{ i.price }} USD</a></h4>
-                            <h6>{{ i.trainer_name }}<span>- Yoga Teacher</span></h6>
-                            <a href="{% url 'course_detail' pk=i.pk %}" class="class-btn">JOIN NOW</a>
+            <div class="row justify-content-center">
+                {% for i in latest_b %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="{{ i.main_pic1.url }}" class="card-img-top" alt="Hanuman Image" style="height: 150px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-transform: uppercase;font-weight: bold;">{{ i.title }}</h5>
+                            <p style="font-weight:100;font-size: medium;">{{ i.content|truncatewords:10 }}</p>
+                            <a href="{% url 'blog_detail' pk=i.pk %}" class="btn btn-success btn-sm">Read more</a>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
-                    </div>
-                </div>               
             </div>
+        </div>
+        <div class="text-center mt-4" style="margin-bottom: 10px;">
+            <a href="{% url 'blogs' %}" class="btn btn-info">View More</a>
         </div>
     </section>
-    <!-- Classes Section End -->
+    
+        
+    <section class="appointment" style="margin-top: 20px;">
+        <h2 style="text-align: center;">Make An Appointment</h2>
 
-    <section class="team spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <img src="{% static 'img/icon.png' %}" alt="">
-                        <h2>Meet Our Team</h2>
-                        <p>We search the entire world to provide you with passionate, authentic Yoga</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="team__slider owl-carousel">
-                    <div class="col-lg-6">
-                        <div class="team__item">
-                            <div class="team__item__pic">
-                                <img src="{% static 'img/team/devraj.png' %}" alt="" style="height:370px;">
-                            </div>
-                            <div class="team__item__text">
-                                <div class="team__item__title">
-                                    <h4>DevRaj Pathak</h4>
-                                    <span>Yoga Teacher</span>
-                                </div>
-                                <p>Yoga & Therapy Certificate of<br />Founder of shiv tattva yog school</p>
-                                <div class="team__item__social">
-                                    <a href="https://www.facebook.com/shivattvaschool"><i class="fa fa-facebook"></i></a>
-                                    <!-- <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="team__item">
-                            <div class="team__item__pic">
-                                <img src="{% static 'img/team/devraj.png' %}" alt="" style="height:350px;">
-                            </div>
-                            <div class="team__item__text">
-                                <div class="team__item__title">
-                                    <h4>Dev raj pathak</h4>
-                                    <span>Yoga Teacher</span>
-                                </div>
-                                <p>Yoga & Therapy Certificate of<br /> Uttarakhand University Sanskirt</p>
-                                <div class="team__item__social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="team__item">
-                            <div class="team__item__pic">
-                                <img src="{% static 'img/team/devraj.png' %}" alt="" style="height:350px;">
-                            </div>
-                            <div class="team__item__text">
-                                <div class="team__item__title">
-                                    <h4>Dev raj pathak</h4>
-                                    <span>Yoga Teacher</span>
-                                </div>
-                                <p>Yoga & Therapy Certificate of<br /> </p>
-                                <div class="team__item__social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section Begin -->
-    <section class="gallery">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title normal-title">
-                        <h2>Our Gallery</h2>
-                        <p>This is the beautiful yogi and yoginis that have shared their journey and growth with<br />
-                            us. Take a look!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-6 p-0">
-                    <div class="gallery__pic">
-                        <img src="{% static "img/gallery/img1.jpeg" %}" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 p-0">
-                    <div class="gallery__pic">
-                        <img src="{% static "img/gallery/img2.jpeg" %}" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 p-0">
-                    <div class="gallery__pic">
-                        <img src="{% static "img/gallery/img3.jpeg" %}" alt="" style="height:316px;">
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 p-0">
-                    <div class="gallery__pic">
-                        <img src="{% static "img/gallery/img4.jpeg" %}" alt="" style="height:316px;" >
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 p-0">
-                    <div class="gallery__pic">
-                        <img src="{% static "img/gallery/img5.jpeg" %}" alt="" style="height:300px;">
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 p-0">
-                    <div class="gallery__pic">
-                        <img src="{% static "img/gallery/img6.jpeg" %}" alt="" style="height:300px;">
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 p-0">
-                    <div class="gallery__pic">
-                        <img src="{% static "img/gallery/img8.jpeg" %}" alt="" style="height:300px;">
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 p-0">
-                    <div class="gallery__pic">
-                        <img src="{% static "img/gallery/img9.jpeg" %}" alt="" style="height:300px;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Gallery Section End -->
-
-    <!-- Team Section Begin -->
-    <!-- <section class="instructor spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title normal-title">
-                        <h2>Meet Our Instructors</h2>
-                        <p>Our Indian and western teachers are highly qualified and will be happy to share this<br />
-                            spiritual journey with you.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                {% for i in trainer %}
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="instructor__item">
-                        <div class="instructor__item__pic">
-                            <img src="{{ i.trainer_pic.url }}" alt="" style="height:200px;width:200px;">
-                        </div>
-                        <div class="instructor__item__text">
-                            <h5>{{i.trainer_name }}</h5>
-                            <span>{{ i.expertise }}</span>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %} -->
-
-                <!-- <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="instructor__item">
-                        <div class="instructor__item__pic">
-                            <img src="{% static "img/instructor/instructor-2.jpg" %}" alt="">
-                        </div>
-                        <div class="instructor__item__text">
-                            <h5>Rebecca James</h5>
-                            <span>Yoga Trainer</span>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="instructor__item">
-                        <div class="instructor__item__pic">
-                            <img src="{% static "img/instructor/instructor-3.jpg" %}" alt="">
-                        </div>
-                        <div class="instructor__item__text">
-                            <h5>Melissa Smith</h5>
-                            <span>Yoga Trainer</span>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="instructor__item">
-                        <div class="instructor__item__pic">
-                            <img src="{% static "img/instructor/instructor-4.jpg" %}" alt="">
-                        </div>
-                        <div class="instructor__item__text">
-                            <h5>Emily Walker</h5>
-                            <span>Yoga Trainer</span>
-                        </div>
-                    </div>
-                </div> -->
-            <!-- </div>
-        </div>
-    </section> -->
-    <!-- Team Section End -->
-
-    <!-- Appoinment Section Begin -->
-    <section class="appointment" style="margin-top:20px;">
-        <div class="container">
-            <div class="appointment__text">
+            <div class="appointment__text bg-success border border-white border-3 rounded-3 p-4 mx-auto" style="max-width: 1000px;">
+             
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="section-title">
-                            <img src="{% static "img/icon-white.png" %}" alt="">
-                            <h2>Make An Appointment</h2>
-                        </div>
+
                     </div>
                 </div>
                 <form action="{% url 'home' %}" method="post" class="appointment__form" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <input type="text" placeholder="Name" name="Name">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Name" name="Name">
                         </div>
-                        <div class="col-lg-6">
-                            <input type="text" placeholder="Email" name="Email">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Email" name="Email">
                         </div>
-                        <div class="col-lg-6">
-                            <input type="text" placeholder="Phone" name="Phone">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Phone" name="Phone">
                         </div>
-                        <div class="col-lg-6">
-                            <select class="class-select" name="classes">
-                                <option value="ashtangha">Ashtanga</option>
-                                <option value="Hatha">Hatha</option>
-
+                        <div class="col-md-6">
+                            <select class="form-select" name="classes">
+                                <option value="USA">USA</option>
+                                <option value="Nepal">Nepal</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Australia">Australia</option>
+                                <option value="INDIA">India</option>
                             </select>
                         </div>
-                        <div class="col-lg-12 text-center">
-                            <textarea placeholder="Message" name="messages"></textarea>
-                            <button type="submit">Submit</button>
+                        <div class="col-md-12">
+                            <textarea class="form-control" placeholder="Message" name="messages"></textarea>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </section>
-    <!-- Appoinment Section End -->
-
-    <!-- Testimonial Section Begin -->
-    <!-- <section class="testimonial spad">
-        <div class="container">
-            <div class="testimonial__slider owl-carousel">
-                <div class="testimonial__item">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-lg-10">
-                            <div class="testimonial__text">
-                                <p>This is my second time completing a 200 hr TTC from Zogin and I loved the experiences
-                                    even more than the first time that I had done in 2014.</p>
-                                <img src="{% static "img/testimonial/testimonial-1.png" %}" alt="">
-                                <h5>Linnie Walton <span>- Trainer</span></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial__item">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-lg-10">
-                            <div class="testimonial__text">
-                                <p>This is my second time completing a 200 hr TTC from Zogin and I loved the experiences
-                                    even more than the first time that I had done in 2015.</p>
-                                <img src="{% static "img/testimonial/testimonial-1.png" %}" alt="">
-                                <h5>Linnie Walton <span>- Trainer</span></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial__item">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-lg-10">
-                            <div class="testimonial__text">
-                                <p>This is my second time completing a 200 hr TTC from Zogin and I loved the experiences
-                                    even more than the first time that I had done in 2016.</p>
-                                <img src="{% static "img/testimonial/testimonial-1.png" %}" alt="">
-                                <h5>Linnie Walton <span>- Trainer</span></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial__item">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-lg-10">
-                            <div class="testimonial__text">
-                                <p>This is my second time completing a 200 hr TTC from Zogin and I loved the experiences
-                                    even more than the first time that I had done in 2017.</p>
-                                <img src="{% static "img/testimonial/testimonial-1.png" %}" alt="">
-                                <h5>Linnie Walton <span>- Trainer</span></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Testimonial Section End -->
+    
+    <!-- Gallery Section Begin -->
     {% endblock %}
+    
     <!-- Footer Section Begin -->
-    <section class="footer" style="margin-top:20px;">
-        <div class="container">
+ 
+    <section class="footer" style="background-image: linear-gradient(62deg, #FBAB7E 45%, #F7CE68 30%);border: 3px solid white; border-radius: 15px; padding: 20px;">
+        <!-- Your footer content goes here -->
+            <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6" style="margin-left:50px;">
                     <div class="footer__about">
-                        <img src="{% static "img/logo.png" %}" alt="" style="width:100px;height:50px;">
+                        <img src="{% static 'img/logo1.png' %}" alt="" style="width:150px; height:60px;;">
                         <ul>
-                            <li><i class="fa fa-clock-o"></i> Mon - Fri: 6:30am - 07:45pm</li>
-                            <li><i class="fa fa-clock-o"></i> Sat - Sun: 8:30am - 05:45pm</li>
+                            <li style="font-family: sans-serif;color: black;"><i class="fa fa-clock-o"></i>anupthatal2@gmail.com</li>
+                            <li style="font-family: sans-serif;color: black;"><i class="fa fa-location">&#127968;</i>location</li>
                         </ul>
                         <form action="{% url 'email' %}" method="post" class="subscribe-form" enctype="multipart/form-data">
                             {% csrf_token %}
                             <input type="text" placeholder="email" name="email">
 
-                            <button type="submit"><i class="fa fa-send"></i></button>
-                        </form>
+                            <button type="submit" class="btn btn-dark ml-2">
+                                <i class="fas fa-subscribe"></i> Subscribe
+                              </button>                        
+                            </form>
                     </div>
                 </div>
-                <!-- <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
-                    <div class="footer__widget">
-                        <h5>Inspiration</h5>
-                        <ul>
-                            <li><a href="#">Online Pilates</a></li>
-                            <li><a href="#">Yoga for Beginners</a></li>
-                            <li><a href="#">Online Pilates</a></li>
-                            <li><a href="#">Online Yoga</a></li>
-                            <li><a href="#">Conditioning</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
-                    <div class="footer__widget">
-                        <h5>About Us</h5>
-                        <ul>
-                            <li><a href="#">Our Vision</a></li>
-                            <li><a href="#">Our Mission</a></li>
-                            <li><a href="#">Meet The Team</a></li>
-                            <li><a href="#">Introduce</a></li>
-                            <li><a href="#">Customer Service</a></li>
-                        </ul>
-                    </div>
-                </div> -->
                 <div class="col-lg-3 col-md-6 col-sm-6" style="margin-left:400px;">
-                    <div class="footer__widget">
-                        <h5>Contact Us</h5>
-                        <ul class="footer-address">
-                            <li><i class="fa fa-phone"></i> (01) 436 8888</li>
-                            <li><i class="fa fa-envelope"></i> hello@zogin.com</li>
-                            <li><i class="fa fa-location-arrow"></i> 828 Granville Lights Suite 466</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
+            
             <div class="footer__copyright">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <div class="footer__copyright__text">
-                            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Teamcodewacky</a></p>
                         </div>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="footer__copyright__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-facebook  bg-primary fa-2x"></i></a>
+                            <a href="#"><i class="fa fa-instagram bg-danger fa-2x"></i></a>
+                            <a href="#"><i class="fa fa-twitter bg-primary fa-2x"></i></a>
+                            <a href="#"><i class="fa fa-linkedin bg-primary fa-2x"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
     <!-- Footer Section End -->
+<!-- Messenger Chat Plugin Code -->
+
+
+    
 
     <!-- Js Plugins -->
     <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>

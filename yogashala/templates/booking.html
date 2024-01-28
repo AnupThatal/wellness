@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pandit G - Services</title>
+    <style>
+        /* Reset default styles for better email compatibility */
+        body, table, td, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        /* Apply inline styles for email */
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            border: 1px solid #e9ecef;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .card-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: black;
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        .card-title div {
+            flex: 1;
+            text-align: center;
+        }
+
+        .card-title .left {
+            text-align: left;
+        }
+
+        .card-title .right {
+            text-align: right;
+        }
+
+        .card-body {
+            background-color: white;
+            padding: 20px;
+        }
+
+        .column {
+            margin-top: -10px;
+            padding: 10px;
+            border-top: 1px solid #e9ecef;
+            font-size: 16px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Billing Invoice</h2>
+                <h3>Pandit G</h3>
+                <p>"At your services"</p>
+                <p>Available in USA, Australia, Nepal, India, Canada</p>
+            </div>
+            <div class="card-title">
+                <div class="left">#REF: {{context.id}}</div>
+            </div>
+            <div class="card-body">
+                <div class="column">
+                    <p><strong>Purchase_date:</strong> {{ context.date }}</p>
+                </div>
+                <div class="column">
+                    <p><strong>Puja:</strong> {{ context.puja_name }}</p>
+                </div>
+                <div class="column">
+                    <p><strong>Price:</strong> {{ context.price }} USD</p>
+                </div>
+                <div class="column">
+                    <p><strong>Payment:</strong> {{ context.payment }}</p>
+                </div>
+                <div class="column">
+                    <p><strong>Address:</strong> {{ context.address }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Company Details:</strong> Pandit G Company, Address: Anamnagar, Kathmandu, Phone: +9779869111406</p>
+        </div>
+    </div>
+</body>
+</html>

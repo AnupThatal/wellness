@@ -1,6 +1,6 @@
 import django_heroku
 import dj_database_url
-from decouple import config
+# from decouple import config
 
 """
 Django settings for yogastudio project.
@@ -43,8 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'yogashala',
-    'crispy_forms',
-    'django_countries'
+    'django_countries',
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -85,7 +86,7 @@ WSGI_APPLICATION = 'yogastudio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'yogshala',
+        'NAME': 'puja',
         'USER':'postgres',
         'PASSWORD':'Hazard@10',
         'HOST':'localhost',
@@ -113,7 +114,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+FILE_UPLOAD_HANDLERS = [
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
+]
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -155,8 +159,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'anupthatal2@gmail.com'
-EMAIL_HOST_PASSWORD = 'Hazard@10'
+EMAIL_HOST_USER = 'pidanup@gmail.com'
+EMAIL_HOST_PASSWORD = 'gimm wwgn efxs fkvc'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

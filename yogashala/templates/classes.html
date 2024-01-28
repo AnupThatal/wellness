@@ -1,6 +1,5 @@
 {% extends 'index.html' %}
 {% load static %}
-    <!-- Breadcrumb End -->
 {% block content %}
 
 <style>
@@ -10,114 +9,44 @@
       }
       
       .classes__item__text:hover{
-        width: 300px;
-        height: 300px;
+        transform: scale(0.3s)
+     
       }
 
       @import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
-
-
-      
-    </style>  
-    <!-- Classes Section Begin -->
+</style>  
     <section class="classes spad">
         <div class="container">
-            <!-- <div class="classes__filter">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <form action="" method="post">
-                            <div class="class__filter__select">
-                                <p>Filter By Day:</p>
-                                <select>
-                                    <option>All</option>
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                </select>
-                            </div>
-                            <div class="class__filter__select">
-                                <p>Level:</p>
-                                <select>
-                                    <option>All Levels</option>
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                </select>
-                            </div>
-                            <div class="class__filter__select">
-                                <p>Teacher:</p>
-                                <select>
-                                    <option>All Teachers</option>
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                </select>
-                            </div>
-                            <div class="class__filter__select">
-                                <p>Style:</p>
-                                <select>
-                                    <option>All Styles</option>
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                </select>
-                            </div>
-                            <div class="class__filter__btn">
-                                <button><i class="fa fa-search"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> -->
-
-        
-
             <div class="row">
                 {% for i in course %}
 
                 <div class="col-lg-4 col-md-6">
-                    <div class="classes__item classes__item__page">
+                    <div class="classes__item classes__item__page" style="padding:25px;">
                         <div class="classes__item__pic set-bg" data-setbg="{{ i.file_mainpic.url }}">
                         </div>
                         <div class="classes__item__text">
-                            <ul>
-                                <li><span class="icon_calendar"></span> {{ i.week }}</li>
-                                <li><span class="icon_clock_alt"></span> {{i.Date}}</li>
-                            </ul>
-                            <h2><a href="#" class="course_title" style="color:black;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">{{ i.course_name|truncatechars:20 }}</a></h2>
-                            <br>
-                            <p><a href="#" style="color:blue ;" class="desc">{{ i.Description|truncatechars:150 }}</a></p>
-
-                            <h4><a href="#">{{ i.price }} USD</a></h4>
-                            <h6>{{ i.trainer_name }}<span>- Yoga Teacher</span></h6>
-                            <a href="{% url 'course_detail' pk=i.pk %}" class="class-btn">JOIN NOW</a>
+                            <h2><a href="#" class="course_title" style="color:black;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;text-align: center;">{{ i.course_name }}</a></h2>
+                            <p><a href="#" style="color:black ;" class="desc">{{ i.Description|truncatechars:150 }}</a></p>
+                            <a href="{% url 'course_detail' pk=i.pk %}" class="btn btn-primary">Book Puja</a>
+                            <a href="{% url 'add_cart' pk=i.pk %}" class="btn btn-primary">Add to cart</a>
                         </div>
                     </div>
                 </div>
-
-{% endfor %}             
-                <div class="col-lg-12">
-                    <div class="classes__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#"><span class="arrow_carrot-right"></span></a>
-                    </div>
-                </div>
+                {% endfor %}             
             </div>
         </div>
     </section>
     <!-- Classes Section End -->
 
     <!-- Upcoming Classes Section Begin -->
-    <section class="upcoming-classes top-classes spad">
+    <section class="upcoming-classes top-classes spad" style="background-color: white;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                    
                     <div class="section-title normal-title">
-                        <h2>Latest Classes</h2>
-                        <p>The trainings are multi-style and you will learn and practice Hatha Vinyasa (flow)<br /> and
-                            Yin Yoga.</p>
+                        <h2 style="font-weight:bold;color: #333;">Upcoming Pooja</h2>
+                        <p style="font-weight:bold;color: #333;">Learn about the spiritual significance of the upcoming puja and its role in our cultural heritage.</p>
                     </div>
                 </div>
             </div>
@@ -130,10 +59,12 @@
                             <span>{{i.Date}}</span>
                         </div>
                         <div class="classes__item__text">
-                            <p>14 Days | Start on 10th Every Month</p>
-                            <h4><a href="#">{{ i.coursename }}</a></h4>
-                            <h6>{{ i.trainer_name }}<span>- Yoga Teacher</span></h6>
-                            <a href="{% url 'course_detail' pk=i.pk %}" class="class-btn">JOIN NOW</a>
+                            <!-- <p>14 Days | Start on 10th Every Month</p> -->
+                            <h2><a href="#" class="course_title" style="color:black;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">{{ i.course_name }}</a></h2>
+
+                            <h6>{{ i.Description | truncatechars:150 }}<span></span></h6>
+                            <a href="{% url 'course_detail' pk=i.pk %}" class="btn btn-primary">BOOK NOW</a>
+                            <a href="{% url 'add_cart' pk=i.pk %}" class="btn btn-primary">ADD TO CART</a>
                         </div>
                     </div>
                 </div>

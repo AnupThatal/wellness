@@ -5,9 +5,8 @@ from venv import create
 from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth import views as auth_views
-
 from yogashala.models import course, profile
-from .views import blog_detail, course_detail,courses, email,home,blogs,about
+from .views import blog_detail, course_detail, course_purchase,courses, email,home,blogs,about,esewapayment,course_purchase,booked,add_cart,findpandit,view_cart,remove_from_cart,create_pandit,course_purchase_cart
 
 
 urlpatterns = [
@@ -16,22 +15,16 @@ urlpatterns = [
     path('course-detail/<int:pk>',course_detail,name='course_detail'),
     path('blog',blogs,name='blogs'),
     path('blog-detail/<int:pk>',blog_detail,name='blog_detail'),
-    # path('register/',register,name='register'),
-    # path('login/',login,name='login'),
-    # path('logout/',logout,name='logout'),
-    # path('reset_password/',auth_views.PasswordResetView.as_view(template_name='reset_password.html'),name='reset_password'),
-    # path('reset_password_sent/',auth_views.PasswordResetDoneView.as_view(template_name='reset_password_sent.html'),name='password_reset_done'),
-    # path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_form.html'),name='password_reset_confirm'),
-    # path('reset_password_complete/',auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_done.html'),name='password_reset_complete'),
     path('about/',about,name='about'),
-    # path('profiles/',profiles,name='profiles'),
     path('email/',email,name='email'),
-    # path('course-filter/',course_filter,name='course_filter'),
-    # path('blog-create',blog_create, name='blog_create'),
-    # path('blog-delete/<int:pk>',delete_post,name='delete_post'),
-    # path('blog-update/<int:pk>',update_post,name='update_post')
-    
-
-
+    path('esewapayment/',esewapayment,name='esewapayment'),
+    path('course_purchase/<int:pk>',course_purchase,name='course_purchase'),
+    path('add_cart/<int:pk>',add_cart,name='add_cart'),
+    path('course_purchase_cart/',course_purchase_cart, name='course_purchase_cart'),
+    path('booked/',booked,name='booked'),
+    path('findpandit/<str:name>/',findpandit, name='findpandit'),
+    path('view_cart/',view_cart,name='view_cart'),    
+    path('remove_from_cart/<int:product_id>/', remove_from_cart, name='remove_from_cart'),
+    path('create_pandit/',create_pandit,name='create_pandit'),    
 ]
 

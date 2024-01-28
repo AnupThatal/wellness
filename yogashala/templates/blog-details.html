@@ -4,7 +4,7 @@
     <!-- Header Section End -->
 
     <!-- Blog Hero Begin -->
-    <section class="breadcrumb-option blog-hero set-bg" data-setbg="{% static "img/breadcrumb.jpg" %}">
+    <!-- <section class="breadcrumb-option blog-hero set-bg" data-setbg="{% static "img/breadcrumb.jpg" %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Blog Hero End -->
 
     <!-- Blog Details Section Begin -->
@@ -28,51 +28,31 @@
             <div class="row">
                 <div class="col-lg-4 order-lg-1 order-2">
                     <div class="blog__sidebar">
-                        <div class="blog__sidebar__search">
-                            <!-- <form action="#">
-                                <input type="text" placeholder="Search">
-                                <button><span class="icon_search"></span></button>
-                            </form> -->
-                        </div>
-                        <div class="blog__sidebar__categories">
-                            <!-- <h4>Categories</h4> -->
+                       
+                        <!-- <div class="blog__sidebar__categories">
+                            <h4>Categories</h4>
                             <ul>
-                                <!-- <li><a href="#">All</a></li>
+                                <li><a href="#">All</a></li>
                                 <li><a href="#">Fuel (20)</a></li>
                                 <li><a href="#">Sweat (5)</a></li>
                                 <li><a href="#">Play (9)</a></li>
-                                <li><a href="#">Live (10)</a></li> -->
+                                <li><a href="#">Live (10)</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <div class="blog__sidebar__recent">
-                            <!-- <h4>Recent News</h4> -->
+                            <h4>Recent Blog</h4>
                             <div class="blog__recent__item">
+                                {% for i in latest_b %}
                                 <div class="blog__recent__item__pic">
-                                    <!-- <img src="{% static "img/blog/br-1.jpg" %}" alt=""> -->
+                                    <img src="{{ i.main_pic1.url }}" alt="" width="100px" height="45px">
                                 </div>
                                 <div class="blog__recent__item__text">
-                                    <!-- <h6>09 Kinds Of Vegetables Protect The Liver</h6>
-                                    <span>MAR 05, 2019</span> -->
+                                    <h6>{{ i.title }}</h6>
+                                    <span>{{ i.Date }}</span>
                                 </div>
+                                {% endfor%}
                             </div>
-                            <div class="blog__recent__item">
-                                <div class="blog__recent__item__pic">
-                                    <!-- <img src="{% static "img/blog/br-2.jpg" %}" alt=""> -->
-                                </div>
-                                <div class="blog__recent__item__text">
-                                    <!-- <h6>Tips You To Balance Nutrition Meal Day</h6>
-                                    <span>MAR 05, 2019</span> -->
-                                </div>
-                            </div>
-                            <div class="blog__recent__item">
-                                <div class="blog__recent__item__pic">
-                                    <img src="img/blog/br-3.jpg" alt="">
-                                </div>
-                                <div class="blog__recent__item__text">
-                                    <!-- <h6>4 Principles Help You Lose Weight With Vegetables</h6>
-                                    <span>MAR 05, 2019</span> -->
-                                </div>
-                            </div>
+                           
                         </div>
                         <div class="blog__sidebar__tags">
                             <!-- <h4>Search By Tags</h4>

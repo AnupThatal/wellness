@@ -1,133 +1,227 @@
 {% extends 'index.html' %}
 {% load static %}
 <!-- Breadcrumb End -->
+
 {% block content %}
+<style>
+    /* Style the card deck container */
+    .card-deck {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    /* Style the individual cards */
+    .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width:250px; /* Adjust the maximum width as needed */
+    margin:0 auto; /* Center the card horizontally on the page */
+    transform: scale(1); /* Add this line to set the default scale */
+    transition: transform 0.3s ease; /* Add transition for smooth scaling */
+}
+
+
+
+    /* Style the card header */
+    .card-header {
+        background-image: linear-gradient(to bottom, #eef1f4, #dee8ee, #cde0e6, #bcd9dc, #add1cf);
+
+        text-align: center;
+        opacity: 0.5;
+    }
+
+    /* Style the card title */
+    .card-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+
+    /* Style the card body */
+    .card-body {
+        text-align: justify;
+        padding: 20px;
+    }
+
+    /* Style the list items */
+    .card-body ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        padding-left: 20px;
+    }
+
+    /* Style the list item text */
+    .card-body li {
+        margin-bottom: 10px;
+    }
+
+    /* Add hover effect to cards */
+    .card:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+    .important-note {
+    border: 2px solid #f9f9f8; /* Add a border with a color */
+    background-color: whitesmoke; /* Add a background color */
+    padding: 10px; /* Add padding for spacing */
+    margin-bottom: 10px; /* Add margin for separation */
+}
+
+</style>
+
     <!-- Classes Section Begin -->
     <section class="classes-details spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="classes__sidebar">
-                        <div class="classes__sidebar__item classes__sidebar__item--info">
-                            <h4>Classes Information</h4>
-                            <ul class="classes__sidebar__item__widget">
-                                <li><span class="icon_calendar"></span>{{course.Date}}</li>
-                            </ul>
-                            <ul class="classes__sidebar__item__id">
-                                <li><span class="icon_pin_alt"></span>{{course.location}}</li>
-                                <li><span class="icon_id"></span>{{ course.trainer_name }}</li>
-                            </ul>
-                            <a href="#" class="sidebar-btn">Enroll in course</a>
+                <!-- Left Column -->
+                <div class="col-lg-6">
+                    <div class="classes__details">
+                        <div class="classes__details__large">
+                            <img src="{{ course.file_mainpic.url }}" alt="" style="height: 500px; width: 500px;  border-radius: 8px;
+                            ">
+                            <!-- <span>Beginner</span> -->
                         </div>
-                        <div class="classes__sidebar__item">
-                            <h4>About Instructor</h4>
-                            <div class="classes__sidebar__instructor">
-                                <div class="classes__sidebar__instructor__pic">
-                                    {% for img in train.trainers_profile_set.all %}
+                       
+                    </div>
+                </div>
+    
+                <!-- Right Column -->
+                <div class="col-lg-6">
+                    <div style="padding: 20px;">
+                        <p style="font-family: Arial; font-size:30px; margin-bottom: 20px; color: black; font-weight: bold;">{{ course.course_name }}</p>
+                        <div>
+                        <!-- <p><span class="display-4" style="font-size:20px;">&#128198;</span> <span style="font-size: 20px;font-family:sans-serif;font-weight:bold;">Flexible Time</span></p> -->
+                        <h5>{{ course.title }}</h5>
+                        <br>
 
-                                    <img src="" alt="">{{ img.trainer_pic1.url}}
 
-                                    {% endfor %}
+                        <p><span class="display-4" style="font-size:20px;">&#128198;</span> <span style="font-size: 20px;font-family:sans-serif;font-weight:bold;">Flexible Time and date</span></p>
+                        <p><span class="display-4" style="font-size:30px;">&#128179;</span> <span style="font-size: 20px;font-family:sans-serif;font-weight:bold;">Online Payment Accepted</span></p>
+                        <p><span class="display-4" style="font-size:30px;">&#128158;</span> <span style="font-size: 20px;font-family:sans-serif;font-weight:bold;">Customer statisfication</span></p>
+                        <p style="font-weight: bold;font-size:30px;">Special Price:<br><br><span style="color: black;font-size:30px;">{{ course.price }} USD</span</p>
+                    
+                    </div>
+                        
 
 
-                                
-                                </div>
-                                <div class="classes__sidebar__instructor__text">
-                                    <div class="classes__sidebar__instructor__title">
-                                        <h4> {{course.trainer_name}}</h4>
-                                        <span>Yoga Teacher</span>
-                                    </div>
-                                    <!-- <p>Yoga & Therapy Certificate of<br /> Uttarakhand University Sanskirt</p> -->
-                                    <div class="classes__sidebar__instructor__social">
-                                        <a href="#"><span class="social_facebook"></span></a>
-                                        <a href="#"><span class="social_twitter"></span></a>
-                                        <a href="#"><span class="social_instagram"></span></a>
-                                        <a href="#"><span class="social_linkedin"></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="classes__sidebar__item">
-                            <!-- <h4>Review & Comment</h4> -->
-                            <div class="classes__sidebar__comment__list">
-                                <div class="classes__sidebar__comment">
-                                     -->
-                                    <div class="classes__sidebar__comment__text">
-                                        <!-- <span>04 Mar 2018</span>
-                                        <h6>Brandon Kelley</h6>
-                                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-                                            adipisci velit,</p> -->
-                                    </div>
-                                </div>
-                                <div class="classes__sidebar__comment">
-                                    <!-- <div class="classes__sidebar__comment__pic">
-                                        <img src="img/classes-details/comment-2.png" alt="">
-                                        <div class="classes__sidebar__comment__rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
-                                    </div> -->
-                                    <!-- <div class="classes__sidebar__comment__text">
-                                        <span>04 Mar 2018</span>
-                                        <h6>Christina Kelley</h6>
-                                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,</p>
-                                    </div> -->
-                                </div>
-                            </div>
+
+                        <!-- <p style="text-align: center;font-size:20px;font-family: cursive;color: rgb(119, 103, 103);">At My Pandit G, we take pride in being your reliable companion on your spiritual journey. While we may be a new entrant, our commitment to providing exceptional Hindu puja services, Vedic Rituals, Religious Ceremonies, and Astrology Services is unwavering.</p> -->
+
+
+
+                        
+                        <div style="text-align: justify; margin-top: 20px;">
+
+                            <a href="{% url 'course_purchase' pk=course.pk %}" class="btn btn-success btn-block btn-lg mt-3">Book</a>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <div class="classes__details">
-                        <div class="classes__details__large">
-                            <img src="{{ course.file_mainpic.url }}" alt="" style="height:500px;width:500px;">
-                            <span>Beginer</span>
-                        </div>
-                        <ul class="classes__details__widget">
-                            <li><span class="icon_calendar"></span> Mon, Wed, Fri</li>
-                            <li><span class="icon_clock_alt"></span> 18:30 - 19:30</li>
+                
+                
+            </div>
+            
+         
+        </div >
+    </section>
+
+
+    
+
+    
+    <section>
+    <div class="container">
+        <h2 style="color: #333; font-family:cursive; font-size: 32px;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">About puja</h2>
+
+        <br>
+        <div>
+            <h5 style="font-family: cursive; text-align: center;background-image:linear-gradient(to right, #051937, #4f285b, #9c3061, #d75048, #eb8d12);color: #fff; padding: 10px;">{{course.title}}</h5>
+        </div>
+        
+        <br>
+
+        <div>
+            <!-- <p style=""font-family: cursive;font-size:17px;font-weight: bolder;"">{{ course.Description}}</p> -->
+
+            <blockquote class="blackquote">
+             <p style="font-family: cursive;font-size:17px;font-weight: bolder;"><em>"{{ course.quotes }}"</em></p>
+            </blockquote>
+                
+
+        </div>
+
+        <div class="important-note">
+            <p>Disclaimer:{{course.important_notes |truncatewords:30}}</p>
+        </div>
+        
+
+
+    </div>
+
+    
+
+
+    </section>
+
+    <section style="margin-top: 20px; background-color:white; padding:10px;">
+        <div class="container">
+            <h2 style="color: #333; font-family: 'cursive', cursive; font-size: 32px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Offerings</h2>
+    
+            <div class="card-deck" style="margin-top: 30px; display: flex; justify-content: space-between; gap: 20px;">
+                <div class="card" style="border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); flex: 0 0 calc(32% - 20px);max-width:500px;">
+                    <div class="card-header text-dark" style="background-color: #f0f0f0; border-radius: 10px 10px 0 0;">
+                        <h4 class="card-title" style="font-family: 'Verdana', Geneva, Tahoma, sans-serif; text-align: center; color: #333;">Spiritual Benefits</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul style="list-style-type: disc; margin-left: 20px; padding-left: 20px; text-align: justify;">
+                            <li><span style="font-weight: bold;">Connection to Deity</span>: Puja helps individuals establish a deep spiritual connection with their chosen deity or deities. It fosters a sense of closeness and devotion.</li>
+                            <li><span style="font-weight: bold;">Spiritual Growth</span>: Regular puja practice can aid in spiritual growth and self-realization, helping individuals evolve on their spiritual path.</li>
                         </ul>
-                        <h2>{{ course.course_name }}</h2>
-                        <p>{{  course.Description }}</p>
-                        <div class="classes__details__item">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-4">
-                                    <!-- <img src="{{ course.pic1.url }}" alt=""> -->
-                                </div>
-                                <div class="col-lg-8 col-md-8">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6">
-                                            <img src="img/classes-details/cd-item-2.jpg" alt="">
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <img src="img/classes-details/cd-item-3.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <img src="img/classes-details/cd-item-4.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="classes__details__desc">
-                            <!-- <h6>The Secret to improving her height to achieve quick result, If you are going to use a
-                                passage of you need to be sure.</h6>
-                            <ul>
-                                <li><span class="icon_check"></span> All their equipment and instruments are alive.</li>
-                                <li><span class="icon_check"></span> The that about to watched storm, so beautiful
-                                    terrific.</li>
-                                <li><span class="icon_check"></span> There are many variations of passages of lorem
-                                    ppsum available.</li>
-                                <li><span class="icon_check"></span> If you are going to use a passage of you need to be
-                                    sure.</li>
-                            </ul> -->
-                        </div>
+                    </div>
+                </div>
+                <div class="card" style="border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); flex: 0 0 calc(32% - 20px);max-width:500px;">
+                    <div class="card-header text-dark" style="background-color: #f0f0f0; border-radius: 10px 10px 0 0;">
+                        <h4 class="card-title" style="font-family: 'Verdana', Geneva, Tahoma, sans-serif; text-align: center; color: #333;">Psychological Benefits</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul style="list-style-type: disc; margin-left: 20px; padding-left: 20px; text-align: justify;">
+                            <li><span style="font-weight: bold;">Stress Reduction</span>: Engaging in puja can induce a sense of calm and inner peace, reducing stress and anxiety levels.</li>
+                            <li><span style="font-weight: bold;">Sense of Purpose</span>: Puja can provide a sense of purpose and direction in life, helping individuals stay grounded and motivated.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card" style="border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); flex: 0 0 calc(32% - 20px);max-width:500px;">
+                    <div class="card-header text-dark" style="background-color: #f0f0f0; border-radius: 10px 10px 0 0;">
+                        <h4 class="card-title" style="font-family: 'Verdana', Geneva, Tahoma, sans-serif; text-align: center; color: #333;">Physical Benefits</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul style="list-style-type: disc; margin-left: 20px; padding-left: 20px; text-align: justify;">
+                            <li><span style="font-weight: bold;">Improved Sleep</span>: Rituals that focus on relaxation and mindfulness can lead to better sleep quality. This is particularly beneficial for individuals who struggle with insomnia or irregular sleep patterns.</li>
+                            <li><span style="font-weight: bold;">Enhanced Focus</span>: Rituals that involve concentration, such as meditation or chanting, can improve mental focus and cognitive function. This heightened concentration can extend to other areas of life.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card" style="border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); flex: 0 0 calc(32% - 20px);max-width:500px;">
+                    <div class="card-header text-dark" style="background-color: #f0f0f0; border-radius: 10px 10px 0 0;">
+                        <h4 class="card-title" style="font-family: 'Verdana', Geneva, Tahoma, sans-serif; text-align: center; color: #333;">Physical Benefits</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <ul style="list-style-type: disc; margin-left: 20px; padding-left: 20px; text-align: justify;">
+                            <li><span style="font-weight: bold;">Stress Reduction</span>: Engaging in puja can induce a sense of calm and inner peace, reducing stress and anxiety levels.</li>
+                            <li><span style="font-weight: bold;">Sense of Purpose</span>: Puja can provide a sense of purpose and direction in life, helping individuals stay grounded and motivated.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    
     <!-- Classes Section End -->
 
     <!-- Leave Comment Begin -->
@@ -166,10 +260,9 @@
             </div>
         </div>
     </div> -->
-    <!-- Leave Comment End -->
 
-    <!-- Upcoming Classes Section Begin -->
-    <!-- <section class="upcoming-classes spad">
+
+   <!-- <section class="upcoming-classes spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -223,7 +316,41 @@
             </div>
         </div>
     </section> -->
-    <!-- Upcoming Classes Section End -->
-
-    <!-- Footer Section Begin -->
+    <section class="upcoming-classes top-classes spad" style="margin-top:10px;background-color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                   
+                    <div class="section-title normal-title">
+                        <h2>Upcoming Puja</h2>
+                        <p>Learn about the spiritual significance of the upcoming puja and its role in our cultural heritage.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for i in c %}
+    
+                <div class="col-lg-4 col-md-6">
+                    <div class="classes__item">
+                        <div class="classes__item__pic set-bg" data-setbg="{{ i.file_mainpic.url }}">
+                            <span>{{i.Date}}</span>
+                        </div>
+                        <div class="classes__item__text">
+                            <!-- <p>14 Days | Start on 10th Every Month</p> -->
+                            <h2><a href="#" class="course_title" style="color:black;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">{{ i.course_name }}</a></h2>
+    
+                            <h6>{{ i.Description | truncatechars:150 }}<span></span></h6>
+                            <a href="{% url 'course_detail' pk=i.pk %}" class="class-btn">BOOK NOW</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+    
+        
+             
+            </div>
+        </div>
+    </section>
   {% endblock %}
+
+ 

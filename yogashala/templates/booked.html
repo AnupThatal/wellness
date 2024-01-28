@@ -1,0 +1,69 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .custom-card-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #777;
+    }
+
+    /* .btn-custom {
+    } */
+
+    .btn-custom:hover {
+        background-color: #d32f2f;
+    }
+</style>
+
+<body>
+    <header class="text-center py-5">
+        <h3>Thank you for your booking! &#128522;</h3>
+        <button class="btn btn-danger mt-3">Need Assistance</button>
+        <p class="mt-4">Our team will contact you soon</p>
+        <p>Check your email for confirmation &#128231;</p>
+        <h3 class="mt-5">Explore More</h3>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <!-- Main Content -->
+            <main class="col-md-9">
+                <div class="row">
+                    <!-- Loop through your Django objects -->
+                    {% for i in course %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="{{ i.file_mainpic.url }}" class="card-img-top custom-card-image" alt="{{ i.course_name }}">
+                            <div class="card-body">
+                                <h2 class="card-title">{{ i.course_name }}</h2>
+                                <p class="card-text">{{ i.Description | truncatechars:150 }}</p>
+                                <a href="{% url 'course_detail' pk=i.pk %}" class="btn btn-primary">BOOK NOW</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- End loop -->
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'courses' %}" class="btn btn-primary btn-lg">Find More Puja</a>
+    </div>
+</body>
+{% endblock %}
